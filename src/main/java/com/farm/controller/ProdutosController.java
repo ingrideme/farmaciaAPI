@@ -33,8 +33,7 @@ public class ProdutosController {
 	public ResponseEntity<ProdutosModel> GetById(@PathVariable long id){
 		return produtosRepository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
-	
-		
+			
 	@PostMapping
 	public ResponseEntity<ProdutosModel> criarProduto(@RequestBody ProdutosModel produto){
 		return ResponseEntity.status(HttpStatus.CREATED).body(produtosRepository.save(produto));
